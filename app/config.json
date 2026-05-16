@@ -1,0 +1,9 @@
+{
+    "puerto_bascula": "COM4",
+    "baudrate": 9600,
+    "timeout": 1,
+    "intervalo_lectura": 200,
+    "nombre_negocio": "Pescadería",
+    "puerto_servidor": 5000,
+    "debug": true
+}

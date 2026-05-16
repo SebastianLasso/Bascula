@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Báscula - Pescadería</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>🐟 Sistema de Báscula</h1>
+            <p class="subtitle">Gestor de peso y precios para pescadería</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Sección de Lectura de Báscula -->
+            <section class="section bascula-section">
+                <h2>Lectura de Báscula</h2>
+                <div class="bascula-display">
+                    <span id="pesoActual" class="peso-valor">0.000</span>
+                    <span class="peso-unidad">kg</span>
+                </div>
+                <p class="bascula-status">Estado: <span id="statusBascula">Conectando...</span></p>
+            </section>
+
+            <!-- Sección de Productos -->
+            <section class="section productos-section">
+                <h2>Productos</h2>
+                <div class="form-grupo">
+                    <input type="text" id="nombreProducto" placeholder="Nombre del producto" class="input">
+                    <input type="number" id="precioProducto" placeholder="Precio ($/kg)" step="0.01" class="input">
+                    <button onclick="agregarProducto()" class="btn btn-primary">Agregar Producto</button>
+                </div>
+                <div id="listaProductos" class="productos-lista">
+                    <!-- Se llena dinámicamente -->
+                </div>
+            </section>
+
+            <!-- Sección de Pesajes -->
+            <section class="section pesaje-section">
+                <h2>Registrar Pesaje</h2>
+                <div class="form-grupo">
+                    <select id="productoSelect" class="input">
+                        <option value="">Seleccionar producto...</option>
+                    </select>
+                    <button onclick="registrarPesaje()" class="btn btn-success">Registrar Pesaje</button>
+                </div>
+            </section>
+
+            <!-- Historial de Pesajes -->
+            <section class="section historial-section">
+                <h2>Historial de Pesajes</h2>
+                <div class="filtros">
+                    <button onclick="limpiarHistorial()" class="btn btn-danger">Limpiar Historial</button>
+                </div>
+                <div id="historialTable" class="tabla-contenedor">
+                    <table class="tabla">
+                        <thead>
+                            <tr>
+                                <th>Producto</th>
+                                <th>Peso (kg)</th>
+                                <th>Precio ($/kg)</th>
+                                <th>Total ($)</th>
+                                <th>Fecha/Hora</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historialBody">
+                            <!-- Se llena dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <p>&copy; 2026 Sistema de Báscula. Todos los derechos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
