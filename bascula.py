@@ -8,7 +8,7 @@ peso_anterior = [""]  # usando lista para evitar global
 
 # crear ventana primero
 ventana = tk.Tk()
-ventana.title("Sistema de peso")
+ventana.title("Sistema de peso actualizado")
 
 tk.Label(ventana, text="Peso").pack()
 
